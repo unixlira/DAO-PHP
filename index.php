@@ -5,19 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DAO - José Roberto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    
 </head>
 <body>
 <?php
 
 require_once 'config.php';
 
-$sql = new Sql();
+// $sql = new Sql();
 
-$usuarios = $sql->select('SELECT * FROM users');
+// $usuarios = $sql->select('SELECT * FROM users');
 
-echo json_encode($usuarios);
+// echo json_encode($usuarios);
+// $usuario = Usuario::search('');
+// echo json_encode($usuario);
+
+$usuario = new Usuario();
+$usuario->login('joserobertolira@gmail.com', '3fde6bb0541387e4ebdadf7c2ff31123');
+echo $usuario->getName().'<br/>';
+echo $usuario->getEmail().'<br/>';
+echo $usuario->getActive().'<br/>';
+echo $usuario->getDate()->format('d/m/Y');
+
 ?>
 
  </body>
